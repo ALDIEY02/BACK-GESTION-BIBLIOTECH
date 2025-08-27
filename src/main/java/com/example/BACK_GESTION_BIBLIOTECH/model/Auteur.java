@@ -19,4 +19,7 @@ public class Auteur {
     private Date datenaissance;
     private String resume;
     private String email;
+
+    @ManyToOne
+    private User createdBy;
 }
