@@ -17,5 +17,8 @@ public class Livre {
     private Date datepublication;
     private boolean disponible;
     private String genre;
-    private int stock; 
+    private int stock;
+
+    @ManyToOne
+    private Auteur idAuteur;
 }
