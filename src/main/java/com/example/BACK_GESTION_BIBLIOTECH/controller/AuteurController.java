@@ -4,12 +4,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.BACK_GESTION_BIBLIOTECH.dto.AuteurRequest;
 import com.example.BACK_GESTION_BIBLIOTECH.model.Auteur;
+import com.example.BACK_GESTION_BIBLIOTECH.model.User;
 import com.example.BACK_GESTION_BIBLIOTECH.service.AuteurService;
+import com.example.BACK_GESTION_BIBLIOTECH.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import java.util.List;
-
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -18,9 +19,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/api/auteurs")
 public class AuteurController {
     private final AuteurService auteurService;
+    private final UserService userService;
     
-    public AuteurController(AuteurService auteurService){
+    public AuteurController(AuteurService auteurService, UserService userService){
         this.auteurService = auteurService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -30,7 +33,18 @@ public class AuteurController {
     
 
     @PostMapping
-    public Auteur create(@RequestBody Auteur auteur){
+    public Auteur create(@RequestBody AuteurRequest request){
+
+        User user = userService.getUserById(request.getUserId());
+
+        Auteur auteur = new Auteur();
+        auteur.setNom(request.getNom());
+        auteur.setPrenom(request.getPrenom());
+        auteur.setEmail(request.getEmail());
+        auteur.setNationalite(request.getNationalite());
+        auteur.setResume(request.getResume());
+        auteur.setCreatedBy(user);
+
         return auteurService.save(auteur);
     }
 }

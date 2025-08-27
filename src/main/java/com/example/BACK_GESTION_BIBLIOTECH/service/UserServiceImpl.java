@@ -2,9 +2,12 @@ package com.example.BACK_GESTION_BIBLIOTECH.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.BACK_GESTION_BIBLIOTECH.model.User;
 import com.example.BACK_GESTION_BIBLIOTECH.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     
