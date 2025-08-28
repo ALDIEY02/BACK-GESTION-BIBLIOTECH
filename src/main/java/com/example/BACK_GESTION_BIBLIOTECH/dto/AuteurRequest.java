@@ -13,5 +13,5 @@ public class AuteurRequest {
     private Date datenaissance;
     private String resume;
     private String email;
-    private Long userId;
+    private Long createdBy;
 }

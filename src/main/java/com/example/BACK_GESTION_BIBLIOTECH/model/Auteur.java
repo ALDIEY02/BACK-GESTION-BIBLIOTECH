@@ -17,6 +17,7 @@ public class Auteur {
     private String prenom;
     private String nationalite;
     private Date datenaissance;
+    @Column(name = "resume", columnDefinition = "TEXT")
     private String resume;
     private String email;
 

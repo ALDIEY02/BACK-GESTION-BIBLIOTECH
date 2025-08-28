@@ -35,7 +35,10 @@ public class AuteurController {
     @PostMapping
     public Auteur create(@RequestBody AuteurRequest request){
 
-        User user = userService.getUserById(request.getUserId());
+        System.out.println("Created by: "+request.getCreatedBy());
+
+        User user = userService.getUserById(request.getCreatedBy());
+        System.out.println("User: "+user);
 
         Auteur auteur = new Auteur();
         auteur.setNom(request.getNom());
