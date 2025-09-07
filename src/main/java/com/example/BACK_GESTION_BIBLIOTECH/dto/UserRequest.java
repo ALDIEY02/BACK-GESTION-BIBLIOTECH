@@ -10,6 +10,8 @@ public class UserRequest {
     private String adresse;
     private String email;
     private String login;
+    private  String numero;
     private String password;
     private String codeuser;
+    private String profilNom;
 }

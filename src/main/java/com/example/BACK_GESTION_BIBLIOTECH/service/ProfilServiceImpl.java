@@ -31,7 +31,7 @@ public class ProfilServiceImpl implements ProfilService {
 
     @Override
     public Profil findProfilById(Long id) {
-        return  profilRepository.findById(id).get();
+        return profilRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Profil non trouvé"));
     }
-
 }
