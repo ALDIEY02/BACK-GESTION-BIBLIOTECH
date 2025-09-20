@@ -25,7 +25,7 @@ public class Livre {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idAuteur", nullable=false)
-    private Auteur idAuteur;
+    private Auteur auteur;
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)

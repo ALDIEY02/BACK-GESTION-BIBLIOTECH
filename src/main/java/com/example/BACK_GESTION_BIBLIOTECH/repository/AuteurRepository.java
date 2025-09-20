@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.BACK_GESTION_BIBLIOTECH.model.Auteur;
 
 public interface AuteurRepository extends JpaRepository<Auteur, Long> {
-    Page<Auteur> findByNomContainingIgnoreCaseOrPrenomContainningIgnoreCase(String nom,String prenom);
+    Page<Auteur> findByNomContainingIgnoreCaseOrPrenomContainningIgnoreCase(String nom,String prenom, org.springframework.data.domain.Pageable pageable);
 }
