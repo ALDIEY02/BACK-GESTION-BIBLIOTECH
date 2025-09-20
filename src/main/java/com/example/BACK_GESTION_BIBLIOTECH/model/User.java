@@ -24,7 +24,7 @@ public class User {
     private String codeuser;
 
     @ManyToOne
-    @JoinColumn(name = "profil_id") // FK vers Profil
+    @JoinColumn(name = "profil_id")
     private Profil profil;
 
     //public User(String user)
