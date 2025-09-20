@@ -2,6 +2,8 @@ package com.example.BACK_GESTION_BIBLIOTECH.model;
 
 import java.util.Date;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +21,13 @@ public class Livre {
     private String genre;
     private int stock;
 
-    @ManyToOne
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="idAuteur", nullable=false)
     private Auteur idAuteur;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="idTypeLivre", nullable=false)
+    private TypeLivre typeLivre;
 }

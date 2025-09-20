@@ -1,5 +1,7 @@
 package com.example.BACK_GESTION_BIBLIOTECH.model;
 
+import java.util.Collection;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,5 +26,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "profil_id") // FK vers Profil
     private Profil profil;
+
+    //public User(String user)
+
+    //
 }
 
